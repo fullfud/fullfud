@@ -1,8 +1,8 @@
 <h1 align="center">fullfud</h1>
 
 <p align="center">
-  Game engines, real-time physics, rendering and the servers behind them.<br>
-  Java · Rust · Linux
+  I make games and game mods work the way they would in real life.<br>
+  Mostly Java and Rust, usually on Linux
 </p>
 
 <p align="center">
@@ -13,49 +13,52 @@
 
 ---
 
-### What I do
+### About me
 
-- **Game mods and engines.** Minecraft mods on Forge, NeoForge and Fabric, and a voxel engine written from scratch in Rust.
-- **Physics and rendering.** Flight and vehicle dynamics on the Jolt engine, client-side prediction for networked vehicles, GLSL post-processing (FXAA, TAA, upscaling, lighting and shadows).
-- **Servers and infrastructure.** Linux services behind nginx and systemd, automated deploys with GitHub Actions, TLS, signed update manifests and security reviews.
-- **Measuring everything.** Profilers, frame-time and memory benchmarks, differential test harnesses against a reference implementation. A change counts only when the numbers move.
-- **AI as a power tool.** I work with coding agents (Claude Code) the way a lead works with a team: I design the system, split the work, review every change and prove it with tests and measurements.
+I started with small server plugins and ended up writing physics, renderers and whole engines. Most of my time goes into Minecraft mods for Forge, NeoForge and Fabric, and lately into a voxel engine I'm building from scratch in Rust.
 
-### Featured
+I like the parts most people skip. Flight and vehicle physics on Jolt, client prediction so driving feels smooth on a laggy server, shaders for anti-aliasing and lighting. I also run my own Linux server for one of my projects with nginx and systemd, and it deploys itself through GitHub Actions.
+
+I don't trust a change until I've measured it. Profilers, frame time and memory benchmarks, tests that compare my engine against the original game. If the numbers didn't move, the change didn't happen.
+
+I use AI coding agents (Claude Code) a lot, and I'm the one in charge. I know how the system has to work, I split the job into pieces, read what comes back and throw out what's wrong. It lets me build much bigger things than I could alone, but it doesn't replace understanding the code.
+
+### Things people actually use
 
 <table>
 <tr>
 <td width="50%" valign="top">
 <a href="https://modrinth.com/mod/shaded-war"><img src="https://cdn.modrinth.com/data/NLOHh3Kg/images/a198b2f5758c79bfdee8d34b45585eb7b1bb4f47_350.webp" alt="Shaded War" width="100%"></a>
 <h4><a href="https://modrinth.com/mod/shaded-war">Shaded War</a></h4>
-FPV drone mod for Forge 1.20.1: flight physics, goggles and first-person control, gamepad support with in-game calibration, signal jamming, custom HUD and post-processing shaders, server-authoritative drones that stay controllable across unloaded chunks.<br><br>
+An FPV drone mod for Forge 1.20.1. You put on the goggles and fly with real drone physics, and a gamepad works too after a quick calibration in game. There is signal jamming, a custom HUD with camera shaders, and drones keep flying even when you fly them far into unloaded chunks.<br><br>
 <a href="https://modrinth.com/mod/shaded-war"><img src="https://img.shields.io/modrinth/dt/shaded-war?style=flat-square&logo=modrinth&label=Modrinth&color=1bd96a" alt="Modrinth downloads"></a>
 <a href="https://www.curseforge.com/minecraft/mc-mods/shaded-war-3-0"><img src="https://img.shields.io/curseforge/dt/1774202?style=flat-square&logo=curseforge&label=CurseForge&color=f16436" alt="CurseForge downloads"></a>
 </td>
 <td width="50%" valign="top">
 <a href="https://modrinth.com/mod/dirtyaliasing"><img src="https://cdn.modrinth.com/data/kKmFt5JM/images/b0f7f5692179d86460abe1bda4a0ed20b440319b_350.webp" alt="DirtyAliasing" width="100%"></a>
 <h4><a href="https://modrinth.com/mod/dirtyaliasing">DirtyAliasing</a></h4>
-Anti-aliasing (FXAA and TAA) and CAS upscaling as a lightweight post-processing pass. One code base for Fabric, Forge and NeoForge.<br><br>
+Minecraft without the jagged edges. FXAA or TAA plus CAS upscaling in one light post-processing pass, and the same code runs on Fabric, Forge and NeoForge.<br><br>
 <a href="https://modrinth.com/mod/dirtyaliasing"><img src="https://img.shields.io/modrinth/dt/dirtyaliasing?style=flat-square&logo=modrinth&label=Modrinth&color=1bd96a" alt="Modrinth downloads"></a>
 <a href="https://www.curseforge.com/minecraft/mc-mods/dirtyaliasing"><img src="https://img.shields.io/curseforge/dt/1402087?style=flat-square&logo=curseforge&label=CurseForge&color=f16436" alt="CurseForge downloads"></a>
 </td>
 </tr>
 </table>
 
-**Server plugins (Paper / Spigot):**
-[RandomLoot](https://github.com/fullfud/RandomPlugin), randomized chest loot ·
-[LightSelector](https://github.com/fullfud/LightSelector), save and toggle light blocks
+For Paper and Spigot servers I also made [RandomLoot](https://github.com/fullfud/RandomPlugin), which fills chests with random loot, and [LightSelector](https://github.com/fullfud/LightSelector) for saving and toggling light blocks.
 
-### In progress (closed source for now)
+### What I'm working on now
 
-| Project | What it is | Built with |
-|---|---|---|
-| **Ruxel** | Voxel game engine written from scratch, checked against the reference game by 281 differential test harnesses. Runs on Linux, macOS and Windows. 700+ commits. | Rust, wgpu, CI |
-| **Varr** | Game launcher with its own backend: signed content and update manifests, certificate pinning, device attestation, admin panel. Deployed to a Linux VPS behind nginx and systemd through GitHub Actions. | Rust, Tauri, TypeScript, Linux |
-| **Trainworks** | Metro and train mod: own track system, block-built tunnels, Jolt physics, real-time lighting and shadows, NPC system. 600+ commits. | Java, GLSL, Jolt |
-| **Vehicle physics** | Contributor to a Jolt-based vehicle mod: client-side prediction, aircraft flight models, damage, native physics libraries built for Windows and Linux. | Java, C++, JNI |
+The source for these is closed for now.
 
-### Toolbox
+**Ruxel** is a voxel game engine I'm writing from scratch in Rust with wgpu. It runs on Linux, macOS and Windows, and 281 test harnesses check that it behaves exactly like the original game. Over 700 commits so far.
+
+**Varr** is a game launcher with its own backend. The server runs on a Linux VPS behind nginx and systemd and deploys through GitHub Actions. Updates and content are signed, the client pins certificates and checks that it hasn't been tampered with, and there's an admin panel for managing builds.
+
+**Trainworks** is a metro and train mod with its own track system, tunnels built from blocks, Jolt physics, real-time lights and shadows and NPCs. Over 600 commits.
+
+I also help on a vehicle mod built on Jolt. I did client-side prediction, aircraft flight models and damage there, and I build the native physics libraries for Windows and Linux myself.
+
+### What I work with
 
 <p>
   <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java">
